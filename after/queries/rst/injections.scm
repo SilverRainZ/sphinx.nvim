@@ -11,6 +11,7 @@
   "versionadded" "versionchanged" "deprecated" "seealso" "centered" "hlist"
   "glossary"
   "index"
+  "only"
   "productionlist")
  (#set! injection.language "rst"))
 
@@ -25,6 +26,12 @@
    name: (type) @_type
    body: (body (arguments) @injection.language (content) @injection.content))
  (#eq? @_type "highlight"))
+
+;; Directives for inserting raw content
+((directive
+   name: (type) @_type
+   body: (body (arguments) @injection.language (content) @injection.content))
+ (#eq? @_type "raw"))
 
 ;; Most directives from domains accept nested content
 ((directive
